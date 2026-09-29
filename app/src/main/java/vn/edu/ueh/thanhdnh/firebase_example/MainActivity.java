@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
   FirebaseFirestore db;
   Button btAdd, btShow;
-  EditText etName, etPhone;
+  EditText etId, etName, etEmail, etPhone;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     db = FirebaseFirestore.getInstance();
     btAdd = findViewById(R.id.btAdd);
     btShow = findViewById(R.id.btShow);
+    etId = findViewById(R.id.etId);
     etName = findViewById(R.id.etName);
+    etEmail = findViewById(R.id.etEmail);
     etPhone = findViewById(R.id.etPhone);
     btAdd.setOnClickListener(this);
     btShow.setOnClickListener(this);
@@ -44,8 +47,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   @Override
   public void onClick(View view) {
     if (view.getId() == R.id.btAdd) {
-      db.collection("users").add(new User(etName.getText().toString(), etPhone.getText().toString()));
+      String idText = etId.getText().toString().trim();
+      String name = etName.getText().toString().trim();
+      if (idText.isEmpty() || name.isEmpty()) {
+        Toast.makeText(this, "Vui lòng nhập ít nhất id và name", Toast.LENGTH_SHORT).show();
+        return;
+      }
+      int id = Integer.parseInt(idText);
+      String email = etEmail.getText().toString().trim();
+      String telephone = etPhone.getText().toString().trim();
+
+      db.collection("articles").add(new Article(id, name, email, telephone));
+      etId.setText("");
       etName.setText("");
+      etEmail.setText("");
       etPhone.setText("");
     } else if (view.getId() == R.id.btShow) {
       Intent intent = new Intent(getBaseContext(), ShowDataActivity.class);
