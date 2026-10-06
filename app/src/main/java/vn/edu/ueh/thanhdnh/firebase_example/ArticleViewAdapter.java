@@ -33,14 +33,29 @@ public class ArticleViewAdapter extends RecyclerView.Adapter<ArticleViewHolder> 
   @Override
   public void onBindViewHolder(@NonNull ArticleViewHolder holder, int position) {
     Article currentArticle = articles.get(position);
+    holder.getImgCover().setImageResource(resolveDrawable(currentArticle.getImgCover()));
     holder.getTxtTitle().setText(currentArticle.getTitle());
     holder.getTxtContent().setText(currentArticle.getContent());
-    holder.getTxtImgCover().setText(String.valueOf(currentArticle.getImgCover()));
-    holder.getTxtView().setText(String.valueOf(currentArticle.getView()));
+    holder.getTxtImgCover().setText("ImgCover: " + currentArticle.getImgCover());
+    holder.getTxtView().setText("View: " + currentArticle.getView());
   }
 
   @Override
   public int getItemCount() {
     return articles.size();
+  }
+
+  // 1=thoi tiet, 2=giao thong, 3=suc khoe, giong du lieu mau cua lab7
+  private int resolveDrawable(int imgCover) {
+    switch (imgCover) {
+      case 1:
+        return R.drawable.cover_weather;
+      case 2:
+        return R.drawable.cover_traffic;
+      case 3:
+        return R.drawable.cover_health;
+      default:
+        return R.drawable.ic_launcher_background;
+    }
   }
 }
