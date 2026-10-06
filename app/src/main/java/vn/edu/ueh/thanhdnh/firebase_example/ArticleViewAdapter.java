@@ -1,6 +1,7 @@
 package vn.edu.ueh.thanhdnh.firebase_example;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +13,20 @@ import java.util.List;
 
 public class ArticleViewAdapter extends RecyclerView.Adapter<ArticleViewHolder> {
   private LayoutInflater mInflater;
+  private Context context;
   private List<Article> articles;
+  private List<String> docIds;
 
-  public ArticleViewAdapter(Context context, List<Article> articles) {
+  public ArticleViewAdapter(Context context, List<Article> articles, List<String> docIds) {
+    this.context = context;
     this.mInflater = LayoutInflater.from(context);
     this.articles = articles;
+    this.docIds = docIds;
   }
 
-  public void update(List<Article> articles){
+  public void update(List<Article> articles, List<String> docIds){
     this.articles = articles;
+    this.docIds = docIds;
   }
 
   @NonNull
@@ -38,6 +44,16 @@ public class ArticleViewAdapter extends RecyclerView.Adapter<ArticleViewHolder> 
     holder.getTxtContent().setText(currentArticle.getContent());
     holder.getTxtImgCover().setText("ImgCover: " + currentArticle.getImgCover());
     holder.getTxtView().setText("View: " + currentArticle.getView());
+
+    String docId = docIds.get(position);
+    holder.itemView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent intent = new Intent(context, ArticleDetailActivity.class);
+        intent.putExtra(ArticleDetailActivity.EXTRA_ARTICLE_ID, docId);
+        context.startActivity(intent);
+      }
+    });
   }
 
   @Override

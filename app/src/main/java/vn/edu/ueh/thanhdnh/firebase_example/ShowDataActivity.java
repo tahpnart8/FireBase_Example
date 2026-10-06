@@ -26,6 +26,7 @@ public class ShowDataActivity extends AppCompatActivity {
     FirebaseFirestore db;
     RecyclerView recyclerView;
     List<Article> articles = new ArrayList();
+    List<String> docIds = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class ShowDataActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
 
         recyclerView = findViewById(R.id.reclyclerview);
-        ArticleViewAdapter adapter = new ArticleViewAdapter(getBaseContext(), articles);
+        ArticleViewAdapter adapter = new ArticleViewAdapter(this, articles, docIds);
         recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
         recyclerView.setAdapter(adapter);
 
@@ -51,6 +52,7 @@ public class ShowDataActivity extends AppCompatActivity {
         public void onEvent(@Nullable QuerySnapshot snapshots, @Nullable FirebaseFirestoreException error) {
           if (snapshots != null) {
             articles.clear();
+            docIds.clear();
             for (QueryDocumentSnapshot q : snapshots) {
               Map<String, Object> data = q.getData();
               Article article = new Article();
@@ -59,8 +61,9 @@ public class ShowDataActivity extends AppCompatActivity {
               article.setImgCover(((Long) data.get("imgCover")).intValue());
               article.setView(((Long) data.get("view")).intValue());
               articles.add(article);
+              docIds.add(q.getId());
             }
-            adapter.update(articles);
+            adapter.update(articles, docIds);
             adapter.notifyDataSetChanged();
           }
         }
