@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
@@ -34,6 +35,9 @@ public class ArticleDetailActivity extends AppCompatActivity {
     txtView = findViewById(R.id.txt_detail_view);
 
     String articleId = getIntent().getStringExtra(EXTRA_ARTICLE_ID);
+
+    // tang view moi lan mo trang chi tiet
+    db.collection("articles").document(articleId).update("view", FieldValue.increment(1));
 
     db.collection("articles").document(articleId)
         .addSnapshotListener(new EventListener<DocumentSnapshot>() {
