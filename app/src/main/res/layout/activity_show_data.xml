@@ -17,7 +17,7 @@
     app:layout_constraintTop_toTopOf="parent">
 
     <TextView
-      android:id="@+id/txt_header_id"
+      android:id="@+id/txt_header_title"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_weight="1"
@@ -25,13 +25,13 @@
       android:paddingLeft="5sp"
       android:paddingTop="5sp"
       android:paddingBottom="5sp"
-      android:text="Id"
+      android:text="Title"
       android:textColor="#FFFFFF"
       android:textSize="18sp"
       android:textStyle="bold" />
 
     <TextView
-      android:id="@+id/txt_name"
+      android:id="@+id/txt_header_content"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_weight="1"
@@ -39,13 +39,13 @@
       android:paddingLeft="5sp"
       android:paddingTop="5sp"
       android:paddingBottom="5sp"
-      android:text="Name"
+      android:text="Content"
       android:textColor="#FFFFFF"
       android:textSize="18sp"
       android:textStyle="bold" />
 
     <TextView
-      android:id="@+id/txt_header_email"
+      android:id="@+id/txt_header_img_cover"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_weight="1"
@@ -53,13 +53,13 @@
       android:paddingLeft="5sp"
       android:paddingTop="5sp"
       android:paddingBottom="5sp"
-      android:text="Email"
+      android:text="ImgCover"
       android:textColor="#FFFFFF"
       android:textSize="18sp"
       android:textStyle="bold" />
 
     <TextView
-      android:id="@+id/txt_phone"
+      android:id="@+id/txt_header_view"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_weight="1"
@@ -67,7 +67,7 @@
       android:paddingLeft="5sp"
       android:paddingTop="5sp"
       android:paddingBottom="5sp"
-      android:text="Phone"
+      android:text="View"
       android:textColor="#FFFFFF"
       android:textSize="18sp"
       android:textStyle="bold" />

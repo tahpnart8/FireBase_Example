@@ -7,47 +7,47 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ArticleViewHolder extends RecyclerView.ViewHolder {
-  private TextView txtId, txtName, txtEmail, txtPhone;
+  private TextView txtTitle, txtContent, txtImgCover, txtView;
   private ArticleViewAdapter adapter;
 
   public ArticleViewHolder(@NonNull View itemView, ArticleViewAdapter adapter) {
     super(itemView);
-    txtId = itemView.findViewById(R.id.txt_id);
-    txtName = itemView.findViewById(R.id.txt_name);
-    txtEmail = itemView.findViewById(R.id.txt_email);
-    txtPhone = itemView.findViewById(R.id.txt_phone);
+    txtTitle = itemView.findViewById(R.id.txt_title);
+    txtContent = itemView.findViewById(R.id.txt_content);
+    txtImgCover = itemView.findViewById(R.id.txt_img_cover);
+    txtView = itemView.findViewById(R.id.txt_view);
     this.adapter = adapter;
   }
 
-  public TextView getTxtId() {
-    return txtId;
+  public TextView getTxtTitle() {
+    return txtTitle;
   }
 
-  public void setTxtId(TextView txtId) {
-    this.txtId = txtId;
+  public void setTxtTitle(TextView txtTitle) {
+    this.txtTitle = txtTitle;
   }
 
-  public TextView getTxtName() {
-    return txtName;
+  public TextView getTxtContent() {
+    return txtContent;
   }
 
-  public void setTxtName(TextView txtName) {
-    this.txtName = txtName;
+  public void setTxtContent(TextView txtContent) {
+    this.txtContent = txtContent;
   }
 
-  public TextView getTxtEmail() {
-    return txtEmail;
+  public TextView getTxtImgCover() {
+    return txtImgCover;
   }
 
-  public void setTxtEmail(TextView txtEmail) {
-    this.txtEmail = txtEmail;
+  public void setTxtImgCover(TextView txtImgCover) {
+    this.txtImgCover = txtImgCover;
   }
 
-  public TextView getTxtPhone() {
-    return txtPhone;
+  public TextView getTxtView() {
+    return txtView;
   }
 
-  public void setTxtPhone(TextView txtPhone) {
-    this.txtPhone = txtPhone;
+  public void setTxtView(TextView txtView) {
+    this.txtView = txtView;
   }
 }

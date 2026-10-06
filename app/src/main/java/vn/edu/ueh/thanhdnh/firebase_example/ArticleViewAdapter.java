@@ -33,10 +33,10 @@ public class ArticleViewAdapter extends RecyclerView.Adapter<ArticleViewHolder> 
   @Override
   public void onBindViewHolder(@NonNull ArticleViewHolder holder, int position) {
     Article currentArticle = articles.get(position);
-    holder.getTxtId().setText(String.valueOf(currentArticle.getId()));
-    holder.getTxtName().setText(currentArticle.getName());
-    holder.getTxtEmail().setText(currentArticle.getEmail());
-    holder.getTxtPhone().setText(currentArticle.getTelephone());
+    holder.getTxtTitle().setText(currentArticle.getTitle());
+    holder.getTxtContent().setText(currentArticle.getContent());
+    holder.getTxtImgCover().setText(String.valueOf(currentArticle.getImgCover()));
+    holder.getTxtView().setText(String.valueOf(currentArticle.getView()));
   }
 
   @Override

@@ -53,8 +53,11 @@ public class ShowDataActivity extends AppCompatActivity {
             articles.clear();
             for (QueryDocumentSnapshot q : snapshots) {
               Map<String, Object> data = q.getData();
-              int id = ((Long) data.get("id")).intValue();
-              Article article = new Article(id, (String) data.get("name"), (String) data.get("email"), (String) data.get("telephone"));
+              Article article = new Article();
+              article.setTitle((String) data.get("title"));
+              article.setContent((String) data.get("content"));
+              article.setImgCover(((Long) data.get("imgCover")).intValue());
+              article.setView(((Long) data.get("view")).intValue());
               articles.add(article);
             }
             adapter.update(articles);

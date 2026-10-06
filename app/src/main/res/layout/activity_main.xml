@@ -8,39 +8,17 @@
     tools:context=".MainActivity">
 
   <TextView
-    android:id="@+id/textViewId"
+    android:id="@+id/textViewTitle"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginStart="56dp"
-    android:layout_marginTop="140dp"
-    android:text="Id"
+    android:layout_marginTop="160dp"
+    android:text="Title"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
 
   <EditText
-    android:id="@+id/etId"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="36dp"
-    android:ems="10"
-    android:inputType="number"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.138"
-    app:layout_constraintStart_toEndOf="@+id/textViewId"
-    app:layout_constraintTop_toTopOf="@+id/textViewId" />
-
-  <TextView
-    android:id="@+id/textView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="56dp"
-    android:layout_marginTop="60dp"
-    android:text="Name"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/textViewId" />
-
-  <EditText
-    android:id="@+id/etName"
+    android:id="@+id/etTitle"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginStart="36dp"
@@ -48,52 +26,52 @@
     android:inputType="text"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.138"
-    app:layout_constraintStart_toEndOf="@+id/textView"
-    app:layout_constraintTop_toTopOf="@+id/textView" />
+    app:layout_constraintStart_toEndOf="@+id/textViewTitle"
+    app:layout_constraintTop_toTopOf="@+id/textViewTitle" />
 
   <TextView
-    android:id="@+id/textViewEmail"
+    android:id="@+id/textViewContent"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginStart="56dp"
     android:layout_marginTop="60dp"
-    android:text="Email"
+    android:text="Content"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/textView" />
+    app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
 
   <EditText
-    android:id="@+id/etEmail"
+    android:id="@+id/etContent"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginStart="36dp"
     android:ems="10"
-    android:inputType="textEmailAddress"
+    android:inputType="textMultiLine"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.138"
-    app:layout_constraintStart_toEndOf="@+id/textViewEmail"
-    app:layout_constraintTop_toTopOf="@+id/textViewEmail" />
+    app:layout_constraintStart_toEndOf="@+id/textViewContent"
+    app:layout_constraintTop_toTopOf="@+id/textViewContent" />
 
   <TextView
-    android:id="@+id/textView3"
+    android:id="@+id/textViewImgCover"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginStart="56dp"
     android:layout_marginTop="60dp"
-    android:text="Phone"
+    android:text="ImgCover"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
+    app:layout_constraintTop_toBottomOf="@+id/textViewContent" />
 
   <EditText
-    android:id="@+id/etPhone"
+    android:id="@+id/etImgCover"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginStart="36dp"
     android:ems="10"
-    android:inputType="phone"
+    android:inputType="number"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.138"
-    app:layout_constraintStart_toEndOf="@+id/textView3"
-    app:layout_constraintTop_toTopOf="@+id/textView3" />
+    app:layout_constraintStart_toEndOf="@+id/textViewImgCover"
+    app:layout_constraintTop_toTopOf="@+id/textViewImgCover" />
 
   <Button
     android:id="@+id/btAdd"
@@ -103,7 +81,7 @@
     android:layout_marginTop="48dp"
     android:text="Add"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+    app:layout_constraintTop_toBottomOf="@+id/textViewImgCover" />
 
   <Button
     android:id="@+id/btShow"
@@ -113,6 +91,6 @@
     android:layout_marginTop="48dp"
     android:text="Show DB"
     app:layout_constraintStart_toEndOf="@+id/btAdd"
-    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+    app:layout_constraintTop_toBottomOf="@+id/textViewImgCover" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
